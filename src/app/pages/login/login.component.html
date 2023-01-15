@@ -1,0 +1,46 @@
+<div class="content h-100">
+  <div class="card border-none">
+    <div class="card-body p-0 d-flex {{_database.screenSize ==='mobile'?'flex-column align-items-center justify-con':''}} shadow">
+      <div class="left {{_database.screenSize ==='mobile'?'':''}}">
+        <h1 class="title">RIBA</h1>
+        <img class="img" src="../../../assets/img/logoSena.png" alt="SenaLogo">
+      </div>
+      <div class="right w-100">
+        <form *ngIf="!retrievePasswordState" [formGroup]="form">
+          <div class="container-input position-relative mb-3">
+            <label for="dni" class="user-select-none font-weight-bold">Número de identificación</label>
+            <input class="input-riba" [type]="'text'" id="dni" placeholder="Digite el número de su documento"
+              formControlName="dni" autofocus />
+          </div>
+          <div class="container-input position-relative">
+            <label for="password" class="user-select-none font-weight-bold">Contraseña</label>
+            <input class="input-riba" [type]="show_password?'text':'password'" formControlName="password" id="password"
+              placeholder="Digite su contraseña" />
+            <i role="button" (click)="show_password=!show_password"
+              class="fas fa-eye{{show_password?'':'-slash'}} icon-support position-absolute"></i>
+          </div>
+          <br>
+          <!-- <a class="link">Recuperar Contraseña</a> -->
+          <div class="alert"></div>
+          <button [disabled]="form.invalid" (click)="login()" class="button-style" type="submit" name="login">Iniciar
+            Sesión</button>
+          <div class="change-password w-100 text-center mt-3">
+            <a class="link" [routerLink]="['/register']">Registrarse</a>
+          </div>
+        </form>
+        <form *ngIf="retrievePasswordState" [formGroup]="formRetrieve">
+          <div class="container-input position-relative d-flex flex-column align-items-center">
+            <div class="">
+              <label for="dni" class="user-select-none font-weight-bold">Correo electrónico de recuperación</label>
+              <input class="input-riba" [type]="'text'" id="dni" placeholder="Correo electrónico"
+                formControlName="email" autofocus />
+            </div>
+            <button class="btn btn-success mt-4 btn-block" [disabled]="formRetrieve.invalid">Solicitar código</button>
+            <div class="text-center mt-2">Por favor ingrese un correo electrónico para enviarle un código de
+              recuperación.</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

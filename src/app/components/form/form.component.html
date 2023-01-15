@@ -1,0 +1,236 @@
+<form name="form" class="main__form">
+  <div class="main__form__{{(academic || instructor)&&_database.screenSize!='mobile'?'left':' w-100'}}">
+    <div class="main__form__card" [formGroup]="formBasic">
+      <h4 class="main__form__card__title">Datos Básicos</h4>
+      <div class="main__form__card__content">
+        <img src="../../../assets/img/perfil 2.svg" alt="" class="{{_database.screenSize ==='mobile'?'d-none':''}} main__form__card__content__img">
+        <div class="w-100">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="name">Nombres:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="firstname" placeholder="Nombres">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="name">Apellidos:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="lastname" placeholder="Apellidos">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="name">Identificacion:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="dni" placeholder="Identificación">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="dni">Teléfono:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="phone" placeholder="Teléfono">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="state">Departamento:</label>
+              <select class="custom-select" formControlName="state">
+                <option selected value="none">Seleccionar una opción</option>
+                <option [value]="state" *ngFor="let state of states">{{state}}</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="city">Ciudad:</label>
+              <div class="input-group">
+                <input type="text" formControlName="city" class="form-control" placeholder="Ciudad">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <label for="address">Dirección:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="address" placeholder="Dirección">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="schedule">Correo electrónico:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="email" placeholder="Correo electrónico">
+              </div>
+            </div>
+          </div>
+          <div class="row" *ngIf="passwords">
+            <div class="col-md-12">
+              <label for="address">Contraseña:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="password" placeholder="Contraseña">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main__form__card" *ngIf="personal" [formGroup]="formPersonal">
+      <h4 class="main__form__card__title">Datos personales</h4>
+      <div class="main__form__card__content">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="academic">Genero:</label>
+            <select class="custom-select" formControlName="gender">
+              <option selected value="none">Seleccionar una opción</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="personal">Fecha de nacimiento:</label>
+            <div class="input-group">
+              <input type="date" class="form-control" formControlName="birthday" placeholder="Fecha de nacimiento">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="academic">Discapacidad:</label>
+            <div class="input-group">
+              <input type="text" class="form-control" formControlName="disability" placeholder="Discapacidad">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="personal">Estrato:</label>
+            <div class="input-group">
+              <input type="text" maxlength="1" formControlName="stratum" class="form-control" placeholder="Estrato">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="personal">Descripción personal:</label>
+            <div class="input-group">
+              <textarea name="" cols="20" formControlName="personal_description" rows="5"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main__form__right" *ngIf="academic" [formGroup]="formAcademic">
+    <div class="main__form__card">
+      <h4 class="main__form__card__title">Datos acádemicos</h4>
+      <div class="main__form__card__content">
+        <div class="w-100">
+          <div class="row mb-3">
+            <div class="col-md-6 mb-1">
+              <label for="regional">Regional:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="regional" placeholder="Regional">
+              </div>
+            </div>
+            <div class="col-md-6 mb-1">
+              <label for="site">Sede:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="location" placeholder="Sede">
+              </div>
+            </div>
+            <div class="col-md-6 mb-1">
+              <label for="site">Modalidad:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="modality" placeholder="Modalidad">
+              </div>
+            </div>
+            <div class="col-md-6 mb-1">
+              <label for="site">Ficha:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="group" placeholder="Ficha">
+              </div>
+            </div>
+            <div class="col-md-6 mb-1">
+              <label for="site">Etapa lectiva:</label>
+              <div class="input-group">
+                <input type="date" class="form-control" formControlName="teaching_stage" placeholder="Etapa lectiva">
+              </div>
+            </div>
+            <div class="col-md-6 mb-1">
+              <label for="site">Etapa productiva:</label>
+              <div class="input-group">
+                <input type="date" class="form-control" formControlName="productive_stage"
+                  placeholder="Etapa productiva">
+              </div>
+            </div>
+            <div class="col-md-6 mb-1">
+              <label for="site">Fecha de culminación:</label>
+              <div class="input-group">
+                <input type="date" class="form-control" formControlName="end_date" placeholder="">
+              </div>
+            </div>
+            <div class="col-md-6 mb-1">
+              <label for="site">Nivel de formación:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="training_level"
+                  placeholder="Nivel de formación">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label for="personal">Descripción académica:</label>
+              <div class="input-group">
+                <textarea name="" cols="20" formControlName="academic_information" rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main__form__righ w-100" *ngIf="instructor" [formGroup]="formInstructor">
+    <div class="main__form__card">
+      <h4 class="main__form__card__title">Datos del instructor</h4>
+      <div class="main__form__card__content">
+        <div class="w-100">
+          <div class="row mb-3">
+            <div class="col-md-12 mb-1">
+              <label for="regional">Especialidad:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="specialty" placeholder="Especialidad">
+              </div>
+            </div>
+            <div class="col-md-6 mb-1">
+              <label for="site">Nombre de la compañia:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="company_name" placeholder="Nombre de la compañia">
+              </div>
+            </div>
+            <div class="col-md-6 mb-1">
+              <label for="site">Cargo:</label>
+              <div class="input-group">
+                <input type="text" class="form-control" formControlName="position_name" placeholder="Cargo">
+              </div>
+            </div>
+            <div class="col-md-6 mb-1">
+              <label for="site">Fecha de inicio:</label>
+              <div class="input-group">
+                <input type="date" class="form-control" formControlName="start_date" placeholder="Fecha de inicio">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="academic">Trabaja actualmente:</label>
+              <select class="custom-select" formControlName="working">
+                <option selected [value]="true">Si</option>
+                <option [value]="false">No</option>
+              </select>
+            </div>
+            <div class="col-md-12">
+              <label for="personal">Descripción de la posición:</label>
+              <div class="input-group">
+                <textarea name="" cols="20" formControlName="position_description" rows="5"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w-100 main__form__button__container">
+    <input type="button" (click)="save()" [value]="buttonText" class="main__form__button w-100">
+  </div>
+  <div *ngIf="link" [routerLink]="['/login']" class="w-100 link_form">¿Ya tienes una cuenta? Inicia sesión aquí?</div>
+</form>

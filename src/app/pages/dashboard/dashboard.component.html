@@ -1,0 +1,43 @@
+<app-header class="w-100 {{_database.screenSize ==='mobile'?'mb-1':'mb-3'}}"></app-header>
+<div *ngIf="_user.user"
+  class="w-100 contenedor {{_database.screenSize ==='mobile'?'':'mt-3'}} d-flex flex-column justify-content-center align-items-center">
+  <div class="main">
+    <h1 class="main__title">Bienvenido {{_user.user.role.name}}, {{_user.user.firstname}} {{_user.user.lastname}}
+    </h1>
+    <hr class="main__separator">
+    <app-form *ngIf="data" [role]="data.role.id" [instructor]="data.role.id===2?true:false"
+      [academic]="data.role.id===3?true:false" [personal]="data.role.id===3?true:false" [passwords]="false"
+      [buttonText]="'Editar información'" [edit]="true" [data]="data" [link]="false"></app-form>
+  </div>
+  <div *ngIf="_user.user.role.id===1" class="card shadow w-100 rounded">
+    <div class="card-body p-2 rounded">
+      <div (click)="newInstructor=!newInstructor" class="btn btn-{{newInstructor?'danger':'success'}}">
+        {{newInstructor?'Cancelar registro':'Registrar nuevo instructor'}}</div>
+      <app-form (formSave)="newInstructor=$event" [role]="2" *ngIf="newInstructor" [academic]="false" [link]="false"
+        [instructor]="true" [personal]="false"></app-form>
+    </div>
+  </div>
+  <div *ngIf="_user.user.role.id===1 && _database.screenSize!='mobile'" class="card shadow w-100 rounded mt-3 mb-5">
+    <div class="card-body w-100">
+      <table class="table" *ngIf="users">
+        <thead>
+          <th>DNI</th>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Correo</th>
+          <th>Teléfono</th>
+          <th>Rol</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cell of users">
+            <td>{{cell.dni}}</td>
+            <td>{{cell.firstname}}</td>
+            <td>{{cell.lastname}}</td>
+            <td>{{cell.email}}</td>
+            <td>{{cell.phone}}</td>
+            <td>{{cell.role}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

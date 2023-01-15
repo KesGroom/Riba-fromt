@@ -1,0 +1,39 @@
+.header {
+  background-color: #fefefe;
+  width: 100%;
+  padding: 0.7rem 4rem;
+  z-index: 4;
+  position: fixed;
+  top: 0px;
+
+  & .header-logo {
+    width: 2.5rem;
+    background-color: #fefefe;
+    padding: 0.2rem;
+    border-radius: 100%;
+  }
+  & .header-title{
+    font-size: 35px;
+  }
+  & .icon{
+    &-user{
+      font-size: 1.7rem;
+    }
+    &-chevron{
+      font-size: 0.8rem;
+    }
+  }
+  & .menu-dropdown{
+    top: 180%;
+    z-index: 4;
+    & .text-small{
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .header{
+    padding: 0.3rem;
+  }
+}
