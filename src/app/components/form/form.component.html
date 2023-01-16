@@ -3,7 +3,8 @@
     <div class="main__form__card" [formGroup]="formBasic">
       <h4 class="main__form__card__title">Datos Básicos</h4>
       <div class="main__form__card__content">
-        <img src="../../../assets/img/perfil 2.svg" alt="" class="{{_database.screenSize ==='mobile'?'d-none':''}} main__form__card__content__img">
+        <img src="../../../assets/img/perfil 2.svg" alt=""
+          class="{{_database.screenSize ==='mobile'?'d-none':''}} main__form__card__content__img">
         <div class="w-100">
           <div class="row">
             <div class="col-md-6">
@@ -114,123 +115,126 @@
       </div>
     </div>
   </div>
-  <div class="main__form__right" *ngIf="academic" [formGroup]="formAcademic">
-    <div class="main__form__card">
-      <h4 class="main__form__card__title">Datos acádemicos</h4>
-      <div class="main__form__card__content">
-        <div class="w-100">
-          <div class="row mb-3">
-            <div class="col-md-6 mb-1">
-              <label for="regional">Regional:</label>
-              <div class="input-group">
-                <input type="text" class="form-control" formControlName="regional" placeholder="Regional">
+  <div class="d-flex flex-column">
+    <div class="main__form__right" *ngIf="academic" [formGroup]="formAcademic">
+      <div class="main__form__card">
+        <h4 class="main__form__card__title">Datos acádemicos</h4>
+        <div class="main__form__card__content">
+          <div class="w-100">
+            <div class="row mb-3">
+              <div class="col-md-6 mb-1">
+                <label for="regional">Regional:</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="regional" placeholder="Regional">
+                </div>
               </div>
-            </div>
-            <div class="col-md-6 mb-1">
-              <label for="site">Sede:</label>
-              <div class="input-group">
-                <input type="text" class="form-control" formControlName="location" placeholder="Sede">
+              <div class="col-md-6 mb-1">
+                <label for="site">Sede:</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="location" placeholder="Sede">
+                </div>
               </div>
-            </div>
-            <div class="col-md-6 mb-1">
-              <label for="site">Modalidad:</label>
-              <div class="input-group">
-                <input type="text" class="form-control" formControlName="modality" placeholder="Modalidad">
+              <div class="col-md-6 mb-1">
+                <label for="site">Modalidad:</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="modality" placeholder="Modalidad">
+                </div>
               </div>
-            </div>
-            <div class="col-md-6 mb-1">
-              <label for="site">Ficha:</label>
-              <div class="input-group">
-                <input type="text" class="form-control" formControlName="group" placeholder="Ficha">
+              <div class="col-md-6 mb-1">
+                <label for="site">Ficha:</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="group" placeholder="Ficha">
+                </div>
               </div>
-            </div>
-            <div class="col-md-6 mb-1">
-              <label for="site">Etapa lectiva:</label>
-              <div class="input-group">
-                <input type="date" class="form-control" formControlName="teaching_stage" placeholder="Etapa lectiva">
+              <div class="col-md-6 mb-1">
+                <label for="site">Etapa lectiva:</label>
+                <div class="input-group">
+                  <input type="date" class="form-control" formControlName="teaching_stage" placeholder="Etapa lectiva">
+                </div>
               </div>
-            </div>
-            <div class="col-md-6 mb-1">
-              <label for="site">Etapa productiva:</label>
-              <div class="input-group">
-                <input type="date" class="form-control" formControlName="productive_stage"
-                  placeholder="Etapa productiva">
+              <div class="col-md-6 mb-1">
+                <label for="site">Etapa productiva:</label>
+                <div class="input-group">
+                  <input type="date" class="form-control" formControlName="productive_stage"
+                    placeholder="Etapa productiva">
+                </div>
               </div>
-            </div>
-            <div class="col-md-6 mb-1">
-              <label for="site">Fecha de culminación:</label>
-              <div class="input-group">
-                <input type="date" class="form-control" formControlName="end_date" placeholder="">
+              <div class="col-md-6 mb-1">
+                <label for="site">Fecha de culminación:</label>
+                <div class="input-group">
+                  <input type="date" class="form-control" formControlName="end_date" placeholder="">
+                </div>
               </div>
-            </div>
-            <div class="col-md-6 mb-1">
-              <label for="site">Nivel de formación:</label>
-              <div class="input-group">
-                <input type="text" class="form-control" formControlName="training_level"
-                  placeholder="Nivel de formación">
+              <div class="col-md-6 mb-1">
+                <label for="site">Nivel de formación:</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="training_level"
+                    placeholder="Nivel de formación">
+                </div>
               </div>
-            </div>
-            <div class="col-md-12">
-              <label for="personal">Descripción académica:</label>
-              <div class="input-group">
-                <textarea name="" cols="20" formControlName="academic_information" rows="5"></textarea>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="main__form__righ w-100" *ngIf="instructor" [formGroup]="formInstructor">
-    <div class="main__form__card">
-      <h4 class="main__form__card__title">Datos del instructor</h4>
-      <div class="main__form__card__content">
-        <div class="w-100">
-          <div class="row mb-3">
-            <div class="col-md-12 mb-1">
-              <label for="regional">Especialidad:</label>
-              <div class="input-group">
-                <input type="text" class="form-control" formControlName="specialty" placeholder="Especialidad">
-              </div>
-            </div>
-            <div class="col-md-6 mb-1">
-              <label for="site">Nombre de la compañia:</label>
-              <div class="input-group">
-                <input type="text" class="form-control" formControlName="company_name" placeholder="Nombre de la compañia">
-              </div>
-            </div>
-            <div class="col-md-6 mb-1">
-              <label for="site">Cargo:</label>
-              <div class="input-group">
-                <input type="text" class="form-control" formControlName="position_name" placeholder="Cargo">
-              </div>
-            </div>
-            <div class="col-md-6 mb-1">
-              <label for="site">Fecha de inicio:</label>
-              <div class="input-group">
-                <input type="date" class="form-control" formControlName="start_date" placeholder="Fecha de inicio">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <label for="academic">Trabaja actualmente:</label>
-              <select class="custom-select" formControlName="working">
-                <option selected [value]="true">Si</option>
-                <option [value]="false">No</option>
-              </select>
-            </div>
-            <div class="col-md-12">
-              <label for="personal">Descripción de la posición:</label>
-              <div class="input-group">
-                <textarea name="" cols="20" formControlName="position_description" rows="5"></textarea>
+              <div class="col-md-12">
+                <label for="personal">Descripción académica:</label>
+                <div class="input-group">
+                  <textarea name="" cols="20" formControlName="academic_information" rows="5"></textarea>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="main__form__righ w-100" *ngIf="instructor" [formGroup]="formInstructor">
+      <div class="main__form__card">
+        <h4 class="main__form__card__title">Datos del instructor</h4>
+        <div class="main__form__card__content">
+          <div class="w-100">
+            <div class="row mb-3">
+              <div class="col-md-12 mb-1">
+                <label for="regional">Especialidad:</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="specialty" placeholder="Especialidad">
+                </div>
+              </div>
+              <div class="col-md-6 mb-1">
+                <label for="site">Nombre de la compañia:</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="company_name"
+                    placeholder="Nombre de la compañia">
+                </div>
+              </div>
+              <div class="col-md-6 mb-1">
+                <label for="site">Cargo:</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" formControlName="position_name" placeholder="Cargo">
+                </div>
+              </div>
+              <div class="col-md-6 mb-1">
+                <label for="site">Fecha de inicio:</label>
+                <div class="input-group">
+                  <input type="date" class="form-control" formControlName="start_date" placeholder="Fecha de inicio">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="academic">Trabaja actualmente:</label>
+                <select class="custom-select" formControlName="working">
+                  <option selected [value]="true">Si</option>
+                  <option [value]="false">No</option>
+                </select>
+              </div>
+              <div class="col-md-12">
+                <label for="personal">Descripción de la posición:</label>
+                <div class="input-group">
+                  <textarea name="" cols="20" formControlName="position_description" rows="5"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-100 main__form__button__container">
+      <input type="button" (click)="save()" [value]="buttonText" class="main__form__button w-100">
+    </div>
+    <div *ngIf="link" [routerLink]="['/login']" class="w-100 link_form">¿Ya tienes una cuenta? Inicia sesión aquí?</div>
   </div>
-  <div class="w-100 main__form__button__container">
-    <input type="button" (click)="save()" [value]="buttonText" class="main__form__button w-100">
-  </div>
-  <div *ngIf="link" [routerLink]="['/login']" class="w-100 link_form">¿Ya tienes una cuenta? Inicia sesión aquí?</div>
 </form>
