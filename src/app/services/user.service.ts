@@ -59,7 +59,6 @@ export class UserService {
       }
     } else {
       Storage.remove({ key: 'user' });
-      Storage.remove({ key: 'admin_panel' });
     }
   }
 

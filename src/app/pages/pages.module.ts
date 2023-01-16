@@ -7,8 +7,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ComponentsModule } from '../components/components.module';
 import { RegisterComponent } from './register/register.component';
-import { AgGridModule } from 'ag-grid-angular';
-
 
 
 @NgModule({
@@ -22,7 +20,6 @@ import { AgGridModule } from 'ag-grid-angular';
     AppRoutingModule,
     ReactiveFormsModule,
     ComponentsModule,
-    AgGridModule
   ]
 })
 export class PagesModule { }

@@ -1,7 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { AgGridAngular } from 'ag-grid-angular';
-import { CellClickedEvent, ColDef } from 'ag-grid-community';
 import { Subject, takeUntil } from 'rxjs';
 import { DatabaseService } from 'src/app/services/database.service';
 import { UserService } from 'src/app/services/user.service';
@@ -50,19 +48,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.stop$.complete();
   }
 
-  public columnDefs: ColDef[] = [
-    { field: 'firstname' },
-    { field: 'lastname' },
-    { field: 'email' }
-  ];
-  public defaultColDef: ColDef = {
-    sortable: true,
-    filter: true,
-  };
-  @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
-  onCellClicked(e: CellClickedEvent): void {
-    console.log('cellClicked', e);
-  }
   public users: any[] = [];
   private getAllUsers() {
     this._database.getDatabase('users').pipe(takeUntil(this.stop$)).subscribe({

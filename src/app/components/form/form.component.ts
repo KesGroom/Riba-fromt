@@ -89,7 +89,7 @@ export class FormComponent implements OnDestroy, OnInit {
       "specialty": ["", [Validators.required]],
       "company_name": ["", [Validators.required]],
       "position_name": ["", [Validators.required]],
-      "position_description": ["", [Validators.required]],
+      "position_description": [""],
       "start_date": ["", [Validators.required]],
       "working": [1, [Validators.required]],
     })
