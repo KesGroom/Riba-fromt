@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   private stop$ = new Subject<void>();
   public data: any;
   public newInstructor: boolean = false;
+  public newAdmin: boolean = false;
 
 
   private getUserInfo() {

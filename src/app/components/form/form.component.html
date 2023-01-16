@@ -1,4 +1,4 @@
-<form name="form" class="main__form">
+<form name="form" class="main__form {{!academic && !instructor && !personal?'d-flex flex-column':'' }}">
   <div class="main__form__{{(academic || instructor)&&_database.screenSize!='mobile'?'left':' w-100'}}">
     <div class="main__form__card" [formGroup]="formBasic">
       <h4 class="main__form__card__title">Datos Básicos</h4>
